@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lista de Jogos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Lista de Jogos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="games-section">
+    <ion-searchbar 
+      placeholder="Buscar jogos..." 
+      (ionInput)="onSearchChange($event)">
+    </ion-searchbar>
+    
+    <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+    
+    <ion-list *ngIf="!loading">
+      <ion-item 
+        *ngFor="let game of games" 
+        [appHighlightRating]="game.rating"
+        button>
+        <ion-thumbnail slot="start">
+          <img 
+            [alt]="game.name + ' thumbnail'" 
+            [src]="game.background_image || 'assets/placeholder-game.jpg'" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ game.name }}</h2>
+          <p>{{ game.released | releaseDate }}</p>
+          <p *ngIf="game.genres.length > 0">
+            Gênero: {{ game.genres[0].name }}
+          </p>
+          <ion-badge color="primary">
+            {{ game.rating | number:'1.1-1' }}/5
+          </ion-badge>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

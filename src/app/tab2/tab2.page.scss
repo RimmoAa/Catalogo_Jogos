@@ -1,0 +1,165 @@
+.games-section {
+padding: 16px;
+ion-searchbar {
+--background: #f8f9fa;
+--border-radius: 12px;
+--box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+margin-bottom: 20px;
+&.searchbar-has-value {
+--background: #e3f2fd;
+}
+}
+ion-spinner {
+display: block;
+margin: 40px auto;
+--color: var(--ion-color-primary);
+}
+ion-list {
+background: transparent;
+ion-item {
+--background: white;
+--border-radius: 16px;
+--padding-start: 16px;
+--padding-end: 16px;
+--inner-padding-end: 16px;
+margin-bottom: 16px;
+border-radius: 16px;
+box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+transition: all 0.3s ease;
+overflow: hidden;
+&:hover {
+transform: translateY(-4px);
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+&:active {
+transform: translateY(-2px);
+}
+ion-thumbnail {
+--size: 80px;
+--border-radius: 12px;
+margin-right: 16px;
+img {
+border-radius: 12px;
+object-fit: cover;
+transition: transform 0.3s ease;
+}
+&:hover img {
+transform: scale(1.05);
+}
+}
+ion-label {
+h2 {
+font-size: 1.2rem;
+font-weight: 600;
+color: #2c3e50;
+margin-bottom: 8px;
+line-height: 1.3;
+}
+p {
+font-size: 0.9rem;
+color: #7f8c8d;
+margin: 4px 0;
+line-height: 1.4;
+}
+ion-badge {
+margin-top: 8px;
+--padding-start: 12px;
+--padding-end: 12px;
+--padding-top: 6px;
+--padding-bottom: 6px;
+font-weight: 600;
+border-radius: 20px;
+&[color="primary"] {
+--background: linear-gradient(45deg, #667eea,
+#764ba2);
+--color: white;
+}
+}
+}
+// Efeito de destaque para jogos bem avaliados
+&.high-rating {
+border: 2px solid #ffd700;
+box-shadow: 0 4px 16px rgba(255, 215, 0, 0.2);
+&:hover {
+box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
+}
+}
+&.good-rating {
+border: 2px solid #c0c0c0;
+box-shadow: 0 4px 16px rgba(192, 192, 192, 0.2);
+&:hover {
+box-shadow: 0 8px 24px rgba(192, 192, 192, 0.3);
+}
+}
+}
+}
+}
+// Animações de entrada para os itens da lista
+ion-item {
+animation: slideInUp 0.5s ease-out;
+animation-fill-mode: both;
+}
+@for $i from 1 through 10 {
+ion-item:nth-child(#{$i}) {
+animation-delay: #{$i * 0.1}s;
+}
+}
+@keyframes slideInUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+// Responsividade
+@media (max-width: 768px) {
+.games-section {
+padding: 12px;
+ion-item {
+ion-thumbnail {
+--size: 60px;
+margin-right: 12px;
+}
+ion-label {
+h2 {
+font-size: 1.1rem;
+}
+p {
+font-size: 0.85rem;
+}
+}
+}
+}
+}
+@media (max-width: 480px) {
+.games-section {
+padding: 8px;
+ion-item {
+--padding-start: 12px;
+--padding-end: 12px;
+margin-bottom: 12px;
+ion-thumbnail {
+--size: 50px;
+margin-right: 10px;
+}
+ion-label {
+h2 {
+font-size: 1rem;
+}
+p {
+font-size: 0.8rem;
+}
+ion-badge {
+--padding-start: 8px;
+--padding-end: 8px;
+--padding-top: 4px;
+--padding-bottom: 4px;
+font-size: 0.8rem;
+}
+}
+}
+}
+}
