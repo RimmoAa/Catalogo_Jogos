@@ -14,10 +14,11 @@ ngOnInit() {
 this.highlight();
 }
 private highlight() {
-if (this.appHighlightRating >= 4.5) {
-this.renderer.addClass(this.el.nativeElement, 'highrating');
-} else if (this.appHighlightRating >= 4.0) {
-this.renderer.addClass(this.el.nativeElement, 'goodrating');
+  if (this.appHighlightRating >= 4.5) {
+    this.renderer.addClass(this.el.nativeElement, 'high-rating');
+  } else if (this.appHighlightRating >= 4.0) {
+    this.renderer.addClass(this.el.nativeElement, 'good-rating');
+  }
 }
-}
+
 }
