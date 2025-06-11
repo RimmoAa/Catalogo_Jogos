@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Catálogo  de Jogos
-    </ion-title>
+    <ion-title>Catálogo de Jogos</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,19 +11,93 @@
     </ion-toolbar>
   </ion-header>
 
-  <div class="Welcome Section">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Descubra Mundos Incríveis</h1>
+      <p class="hero-subtitle">Explore nossa coleção curada dos jogos mais impressionantes e envolventes</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">1000+</span>
+          <span class="stat-label">Jogos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Gêneros</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">4.8</span>
+          <span class="stat-label">Avaliação</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-background"></div>
+  </div>
 
-<ion-card>
-<ion-card-header>
-<ion-card-title>Bem Vindo ao Catálogo de Jogos!</ion-card-title>
-<ion-card-subtitle>Descubra os Melhores Jogos</ion-card-subtitle>
-</ion-card-header>
+  <!-- Featured Games Section -->
+  <div class="featured-section">
+    <h2 class="section-title">Jogos em Destaque</h2>
+    <p class="section-subtitle">Experiências visuais que definem o futuro dos games</p>
+    
+    <div class="featured-grid">
+      <div class="featured-card" *ngFor="let game of featuredGames; let i = index">
+        <div class="card-image">
+          <img [src]="game.image" [alt]="game.title" />
+          <div class="card-overlay">
+            <div class="card-content">
+              <h3 class="card-title">{{ game.title }}</h3>
+              <p class="card-genre">{{ game.genre }}</p>
+              <div class="card-rating">
+                <ion-icon name="star" class="star-icon"></ion-icon>
+                <span>{{ game.rating }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<ion-card-content>Explore nossa coleção de jogos incríveis. Use a aba de "Jogos" Para ver a lista completa. </ion-card-content>
-</ion-card>
+  <!-- Call to Action Section -->
+  <div class="cta-section">
+    <div class="cta-content">
+      <h2 class="cta-title">Pronto para Explorar?</h2>
+      <p class="cta-subtitle">Mergulhe em nossa biblioteca completa e encontre sua próxima aventura</p>
+      <ion-button 
+        expand="block" 
+        size="large"
+        class="cta-button"
+        (click)="goToGamesList()">
+        <ion-icon name="game-controller" slot="start"></ion-icon>
+        Explorar Catálogo Completo
+      </ion-button>
+    </div>
+  </div>
 
-<ion-button expand="block" (click)="goToGamesList()" color="primary"> Ver Lista de Jogos </ion-button>
-</div>  
+  <!-- Additional Features -->
+  <div class="features-section">
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">
+          <ion-icon name="search"></ion-icon>
+        </div>
+        <h3>Busca Inteligente</h3>
+        <p>Encontre jogos por gênero, avaliação ou nome</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <ion-icon name="star"></ion-icon>
+        </div>
+        <h3>Avaliações</h3>
+        <p>Classificações detalhadas da comunidade</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <ion-icon name="trending-up"></ion-icon>
+        </div>
+        <h3>Tendências</h3>
+        <p>Descubra os jogos mais populares</p>
+      </div>
+    </div>
+  </div>
 </ion-content>
-
-
